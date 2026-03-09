@@ -83,7 +83,7 @@ snippets/
 └── openaccessible.liquid
 
 Paste the following code into **openaccessible.liquid**:
-
+```
 <script>
 window.OpenAccessibleConfig = {
   dictionaryApiUrl: "https://api.openaccessible.com/api/v1/"
@@ -92,7 +92,7 @@ window.OpenAccessibleConfig = {
 
 <script src="{{ 'openaccessible.js' | asset\_url }}" defer></script>
 
-* * *
+```
 
 Step 4 — Enable the Widget
 --------------------------

@@ -3,102 +3,86 @@
 ♿ OpenAccessible Shopify Widget
 ===============================
 
-The **OpenAccessible Widget** adds accessibility tools to Shopify stores to help improve usability for visitors with disabilities and move toward **WCAG 2.1 / WCAG 2.2 AA accessibility goals**.
+The **OpenAccessible widget** adds accessibility tools to Shopify websites. It helps improve usability for visitors with disabilities and supports **WCAG 2.1 / WCAG 2.2 AA accessibility goals**.
 
-The widget includes tools like:
+Features include:
 
-*   Text-to-Speech
-*   Contrast & color controls
-*   Dyslexia font
-*   Reading guide
-*   Translation
+*   Text-to-speech
 *   Font resizing
+*   Dyslexia font
+*   Color contrast controls
+*   Reading guide
+*   Translation tools
 *   Accessibility navigation helpers
 
-This version works with **Shopify themes** and does **not require installing an app**.
+This integration works directly with Shopify themes and does not require installing a Shopify app.
 
 * * *
 
-🌐 Links
---------
+📦 Installation (Visual Studio / VS Code)
+-----------------------------------------
 
-*   [Website](https://openaccessible.com)
-*   [Documentation](https://openaccessible.com/docs)
-*   [Support](https://openaccessible.com/support)
-*   [Main Repository](https://github.com/openaccessible/openaccessible)
-*   [Shopify Version](https://github.com/openaccessible/shopify)
+These instructions assume you have your Shopify theme open in **Visual Studio Code** using the Shopify CLI or a downloaded theme.
 
 * * *
 
-📦 Installation Guide
----------------------
+Step 1 — Open Your Shopify Theme
+--------------------------------
 
-Installing the OpenAccessible widget requires adding **one JavaScript file** and **one Liquid snippet** to your Shopify theme.
+Open your theme folder in Visual Studio Code.
 
-Total install time: **about 2 minutes**.
+Your Shopify theme structure should look similar to this:
 
-* * *
-
-Step 1 — Open Theme Code Editor
--------------------------------
-
-Log into your Shopify admin panel.
-
-Navigate to:
-
-Shopify Admin
- → Online Store
-   → Themes
-     → Click "..." on your active theme
-       → Edit Code
-
-This will open the Shopify **theme code editor**.
+theme/  
+├── assets/  
+├── config/  
+├── layout/  
+├── locales/  
+├── sections/  
+├── snippets/  
+└── templates/
 
 * * *
 
-Step 2 — Upload the JavaScript File
------------------------------------
+Step 2 — Add the JavaScript File
+--------------------------------
 
-Inside the code editor locate the folder:
+Open the folder:
 
-Assets
+assets
 
-Click:
-
-Add a new asset → Upload file
-
-Upload the file:
+Add the file:
 
 openaccessible.js
 
-The file will now appear in:
+Example structure:
 
-Assets/
- └ openaccessible.js
+assets/  
+├── theme.js  
+├── theme.css  
+└── openaccessible.js
 
 * * *
 
-Step 3 — Create the Snippet
----------------------------
+Step 3 — Add the Snippet
+------------------------
 
-Locate the folder:
+Open the folder:
 
-Snippets
+snippets
 
-Click:
+Create a new file:
 
-Add a new snippet
+openaccessible.liquid
 
-Name the snippet:
+Example folder structure:
 
-openaccessible
+snippets/  
+├── header.liquid  
+├── footer.liquid  
+└── openaccessible.liquid
 
-This creates:
-
-Snippets/
- └ openaccessible.liquid
-
-Paste the following code into the snippet:
+Paste the following code into **openaccessible.liquid**:
 
 <script>
 window.OpenAccessibleConfig = {
@@ -108,23 +92,20 @@ window.OpenAccessibleConfig = {
 
 <script src="{{ 'openaccessible.js' | asset\_url }}" defer></script>
 
-Save the file.
-
 * * *
 
-Step 4 — Enable the Widget in the Theme
----------------------------------------
+Step 4 — Enable the Widget
+--------------------------
 
-Open the theme layout file:
+Open the file:
 
-Layout/
- └ theme.liquid
+layout/theme.liquid
 
 Scroll to the bottom of the file and find:
 
 </body>
 
-Add the snippet **right before it**:
+Add this line above it:
 
 {% render 'openaccessible' %}
 
@@ -133,35 +114,44 @@ Example:
 {% render 'openaccessible' %}
 </body>
 
-Save the file.
+* * *
+
+📂 Final Folder Structure
+-------------------------
+
+Your theme should now include:
+
+theme/  
+├── assets/  
+│ └── openaccessible.js  
+│  
+├── snippets/  
+│ └── openaccessible.liquid  
+│  
+└── layout/  
+└── theme.liquid
 
 * * *
 
 ✅ Installation Complete
 -----------------------
 
-The OpenAccessible widget will now appear on your Shopify store.
+The OpenAccessible widget should now appear on your Shopify website.
 
-Visitors will see the accessibility icon button which opens the accessibility control panel.
+Visitors will see the accessibility icon button that opens the accessibility tools panel.
 
 * * *
 
-⚙️ Optional Configuration
--------------------------
+⚙️ Configuration
+----------------
 
-You can customize the widget inside the snippet configuration.
+You can customize the widget configuration inside the snippet:
 
 window.OpenAccessibleConfig = {
   position: "right",
   color: "#2563eb",
   dictionaryApiUrl: "https://api.openaccessible.com/api/v1/"
 };
-
-Options may include:
-
-*   Widget position
-*   Widget color
-*   API configuration
 
 * * *
 
@@ -172,7 +162,7 @@ Works with most Shopify themes including:
 
 *   Dawn
 *   Debut
-*   Shopify Online Store 2.0 themes
+*   Online Store 2.0 themes
 *   Most modern custom themes
 
 * * *
@@ -182,22 +172,14 @@ Works with most Shopify themes including:
 
 OpenAccessible does not collect personal data.
 
-Accessibility preferences are saved locally using:
+User accessibility preferences are stored locally using:
 
 localStorage
-
-Examples include:
-
-*   font size preference
-*   contrast settings
-*   reading tools
 
 * * *
 
 🤝 Contributing
 ---------------
-
-We welcome community contributions.
 
 *   Improve accessibility tools
 *   Fix bugs
@@ -216,7 +198,7 @@ Licensed under the **AGPL-3.0 License**.
 ♿ About OpenAccessible
 ----------------------
 
-OpenAccessible is an open-source accessibility platform designed to help websites become easier to use for everyone.
+OpenAccessible is an open-source accessibility platform designed to make the web easier to use for everyone.
 
 Supported platforms include:
 

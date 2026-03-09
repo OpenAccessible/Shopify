@@ -205,6 +205,7 @@ Supported platforms include:
 *   Standard websites
 *   Shopify
 *   WooCommerce
+*   WordPress
 *   Laravel
 *   Next.js (coming soon)
 
